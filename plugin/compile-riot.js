@@ -1,6 +1,6 @@
 var riot_compile = Npm.require('riot/compiler');
 
-Plugin.registerSourceHandler("tag", {archMatching: 'web'}, function (compileStep) {
+Plugin.registerSourceHandler("tag", {isTemplate: true, archMatching: 'web'}, function (compileStep) {
     var source = compileStep.read().toString('utf8');
     try {
 	var js = riot_compile(source, { compact:true})
