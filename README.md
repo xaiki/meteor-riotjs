@@ -19,16 +19,27 @@ you can use the provided magic RiotMeteor.Observe method to map your meteor
 collections to a flat array (that riot can use), you basically do this in
 your tag code:
 
+```js
   observe = RiotMeteor.Observe.bind(this);
   observe (this.items.find({}), 'cursor');
+```
 
 And then you get a this.cursor (note that we named it) variable in your tag
 code.
 
 you *need* to do the binding, or everything will blow up without telling you
 anything, then everytime the collection is modified meteor will call
-tag.update().
+`tag.update()`.
 
 there are a few bugs with this implementation (like update not beind defined
 when tag is not yet mounted) but it 'sort of works' for the default todo
 list example, so I guess it'd useful.
+
+## Using
+
+just add it like you'd add any other meteor package and start editing `tag`
+files in your client code.
+
+```sh
+    meteor add xaiki:meteor-riotjs
+```
