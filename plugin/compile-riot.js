@@ -1,9 +1,9 @@
-var riot_compile = Npm.require('riot/compiler');
+var riot = Npm.require('riot');
 
 Plugin.registerSourceHandler("tag", {isTemplate: true, archMatching: 'web'}, function (compileStep) {
     var source = compileStep.read().toString('utf8');
     try {
-	var js = riot_compile(source, { compact:true})
+	var js = riot.compile(source, { compact:true});
     } catch (e) {
 	compileStep.error({
 	    message: "Riot compiler error: " + e.message,

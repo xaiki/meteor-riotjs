@@ -1,6 +1,14 @@
+var riotVersion = "2.0.7";
+
 Package.describe({
-    summary: "A React- like, 2.5Kb user interface library",
-    version: "2.0.1"
+  summary: "A React- like, 2.5K user interface library",
+  version: riotVersion,
+  name: "xaiki:riotjs",
+  git: "https://github.com/xaiki/meteor-riotjs"
+});
+
+Npm.depends({
+  "riot": riotVersion
 });
 
 Package.registerBuildPlugin({
@@ -11,13 +19,12 @@ Package.registerBuildPlugin({
   ],
   npmDependencies: {
     // Fork of 1.7.4 deleted large unused files in dist directory.
-    "riot": "2.0.1"
+    "riot": riotVersion
   }
 });
 
-Package.onTest(function (api) {
-  api.use(['test-helpers', 'tinytest', 'less', 'templating']);
-  api.addFiles(['less_tests.less', 'less_tests.js', 'less_tests.html',
-                 'less_tests_empty.less'],
-                'client');
+Package.onUse(function (api) {
+  /* XXX(xaiki): this is a hack, we'd need a way to use npm's require.resolve */
+  var riotNpmDir = '.npm/package/node_modules/riot/';
+  api.addFiles (riotNpmDir + 'riot.min.js' , 'web');
 });
