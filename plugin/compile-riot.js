@@ -15,7 +15,7 @@ Plugin.registerSourceHandler("tag", {isTemplate: true, archMatching: 'web'}, fun
     }
 
     compileStep.addJavaScript({
-	path: 'lib/' + compileStep.inputPath + ".js",
+	path: compileStep.inputPath + ".js",
 	data: js,
 	sourcePath: compileStep.inputPath,
     });
