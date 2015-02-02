@@ -28,3 +28,4 @@ Package.onUse(function (api) {
   var riotNpmDir = '.npm/package/node_modules/riot/';
   api.addFiles (riotNpmDir + 'riot.min.js' , 'web');
 });
+

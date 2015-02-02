@@ -23,3 +23,4 @@ Plugin.registerSourceHandler("tag", {isTemplate: true, archMatching: 'web'}, fun
 
 // Backward compatibility with Meteor 0.7
 Plugin.registerSourceHandler("riotimport", function () {});
+
