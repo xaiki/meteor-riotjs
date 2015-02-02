@@ -13,3 +13,22 @@ We do not include the browser compiler as we have a great way to have meteor
 compile all on the server, if for some reason you feel this is a mistake,
 please drop me a line and we'll chat about it.
 
+## (horrendously) hackish meteor integration
+
+you can use the provided magic RiotMeteor.Observe method to map your meteor
+collections to a flat array (that riot can use), you basically do this in
+your tag code:
+
+  observe = RiotMeteor.Observe.bind(this);
+  observe (this.items.find({}), 'cursor');
+
+And then you get a this.cursor (note that we named it) variable in your tag
+code.
+
+you *need* to do the binding, or everything will blow up without telling you
+anything, then everytime the collection is modified meteor will call
+tag.update().
+
+there are a few bugs with this implementation (like update not beind defined
+when tag is not yet mounted) but it 'sort of works' for the default todo
+list example, so I guess it'd useful.

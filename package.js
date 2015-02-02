@@ -26,6 +26,8 @@ Package.registerBuildPlugin({
 Package.onUse(function (api) {
   /* XXX(xaiki): this is a hack, we'd need a way to use npm's require.resolve */
   var riotNpmDir = '.npm/package/node_modules/riot/';
-  api.addFiles (riotNpmDir + 'riot.min.js' , 'web');
+  api.addFiles (riotNpmDir + 'riot.min.js' , 'client');
+  api.addFiles ('src/observe.js', 'client');
+  api.export('RiotMeteor', 'client');
 });
 
