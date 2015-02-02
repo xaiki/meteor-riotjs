@@ -37,9 +37,9 @@ list example, so I guess it'd useful.
 
 ## Using
 
-just add it like you'd add any other meteor package and start editing `tag`
+just add it like you'd add any other meteor package and start editing `.tag`
 files in your client code.
 
 ```sh
-    meteor add xaiki:meteor-riotjs
+    meteor add xaiki:riotjs
 ```
