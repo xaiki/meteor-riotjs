@@ -11,7 +11,6 @@ RiotMeteor = {
                         console.error ('warning stupid implementation', tag[target]);
                 };
 
-                console.error ('observing');
                 cursor.observe({
                         addedAt: function (document, atIndex, before) {
                                 tag[target].push(document);
